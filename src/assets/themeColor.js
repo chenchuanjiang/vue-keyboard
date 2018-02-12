@@ -86,3 +86,13 @@ export function getId(){
     }
     return getMyID();
 }
+
+export function addprix(a, b){
+    var i = 0,
+        suffixLength = b - a,
+        suffix = '';
+    for (i = 0; i < suffixLength; i++) {
+        suffix += '0';
+    }
+    return suffix;
+}

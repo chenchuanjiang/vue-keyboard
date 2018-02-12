@@ -43,7 +43,7 @@
 
 <script>
 // import Tools from '@/assets/themeColor.js';
-import { getId, newElem, isColor, setColor } from '@/assets/themeColor.js';
+import { getId, newElem, isColor, setColor, addprix } from '@/assets/themeColor.js';
 export default {
     name: "keyboard",
     data() {
@@ -490,6 +490,14 @@ export default {
             this.keyboardclose();
         },
         onConfirm(){
+            if (this.defaultParam.subType === 'float' && this.value.split('.').length === 2) {
+                this.value += addprix(this.value.split('.')[1].length, this.defaultParam.precision);
+                const min = this.defaultParam.minValue && this.defaultParam.minValue-0 || 0,
+                    max = this.defaultParam.maxValue && this.defaultParam.maxValue || 999999999;
+                if (this.value>= min && this.value <= max) {
+                    this.canConfirm = true;
+                }
+            }
             if (!this.canConfirm) {
                 const msg = this.defaultParam.message || '您的输入有误，请重新输入';
                 this.$refs.keyboard_msg.innerHTML = msg;

@@ -31,7 +31,6 @@ let keyboard = (option = {}) => {
     instance.value = instance.defaultParam.defaultValue;
     instance.isUpper = instance.defaultParam.subType === 'upperChar' ? true : false;
     instance.canSwitch = instance.defaultParam.type === 'charNum' ? true : false;
-    console.log(option, instance.defaultParam);
     instance.keyboardclose = (t) => {	
 		setTimeout(() => {
             if (instance.$css) {
@@ -42,7 +41,9 @@ let keyboard = (option = {}) => {
             }
 		},t || 100)
     }
-    document.body.appendChild(instance.$el)
+    setTimeout(() => {
+        document.body.appendChild(instance.$el)
+    }, 100);
     return instance
 }
 

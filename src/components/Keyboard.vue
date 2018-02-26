@@ -216,35 +216,6 @@ export default {
                     }
                 }
             }
-            //     if (v-0 >= a || o[0].length >= (a+'').length) {
-            //         this.noneKey = [0,1,2,3,4,5,6,7,8,9,10];
-            //         return
-            //     }
-            //     if (v.length === 1 && v === '0') {
-            //         this.noneKey = [0,1,2,3,4,5,6,7,8,9];
-            //         return;
-            //     } else if((a+'').indexOf(v) === 0 && (a+'').length > v.length) {
-            //         f = parseInt((a+'').substr(v.length,1));
-            //         this.noneKey = [...this.getNumL(f+1,9)];
-            //         if (v<b){
-            //             this.noneKey = [...this.noneKey, 9];
-            //         }
-            //     } else if((b+'').indexOf(v) === 0 && (b+'').length > v.length){
-            //         f = parseInt((b+'').substr(v.length,1));
-            //         // debugger
-            //         this.noneKey = [...this.getNumL(0,f-1), 9];
-            //     } else if (v.indexOf('.')>-1){
-            //         if (o[1].length>=p){
-            //             this.noneKey = [0,1,2,3,4,5,6,7,8,9,10];
-            //         } else if (o[1].length === p-1 && o[0] === '0' && o[1]-0 === 0) {
-            //             this.noneKey=[9,10];
-            //         } else {
-            //             this.noneKey=[9];
-            //         }
-                    
-            //     }
-            //     this.noneKey = [...this.noneKey, 9];
-            // }
             if (v - 0>=b&&v-0<=a){
                 this.canConfirm = true;
             }

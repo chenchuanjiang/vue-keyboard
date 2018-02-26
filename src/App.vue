@@ -69,6 +69,10 @@ name: 'App',
             this.keyboardParam.length = '1,8';
             this.keyboardParam.subType = 'number';
             this.keyboardParam.theme = '#e1e1e1';
+            this.keyboardParam.defaultValue = '';
+            if (this.numVal.indexOf('请输入') === -1) {
+                this.keyboardParam.defaultValue = this.numVal;
+            }
             this.keyboardParam.onConfirm = (v, t) => {
                 this.numVal = v;
                 t.keyboardclose(200);
@@ -80,6 +84,10 @@ name: 'App',
             this.keyboardParam.length = '6';
             this.keyboardParam.subType = 'phone';
             this.keyboardParam.theme = '#ff0000';
+            this.keyboardParam.defaultValue = '';
+            if (this.telVal.indexOf('请输入') === -1) {
+                this.keyboardParam.defaultValue = this.telVal;
+            }
             this.keyboardParam.onConfirm = (v, t) => {
                 this.telVal = v;
                 t.keyboardclose(200);
@@ -91,6 +99,10 @@ name: 'App',
             this.keyboardParam.length = '6';
             this.keyboardParam.subType = 'certNo';
             this.keyboardParam.theme = '#ff0000';
+            this.keyboardParam.defaultValue = '';
+            if (this.certIdVal.indexOf('请输入') === -1) {
+                this.keyboardParam.defaultValue = this.certIdVal;
+            }
             this.keyboardParam.onConfirm = (v, t) => {
                 this.certIdVal = v;
                 t.keyboardclose(200);
@@ -104,6 +116,10 @@ name: 'App',
             this.keyboardParam.maxValue = '200';
             this.keyboardParam.subType = 'float';
             this.keyboardParam.theme = '#ff0000';
+            this.keyboardParam.defaultValue = '';
+            if (this.floatVal.indexOf('请输入') === -1) {
+                this.keyboardParam.defaultValue = this.floatVal;
+            }
             this.keyboardParam.onConfirm = (v, t) => {
                 this.floatVal = v;
                 t.keyboardclose(200);
@@ -116,8 +132,12 @@ name: 'App',
             this.keyboardParam.length = '1,6';
             this.keyboardParam.minValue = '20';
             this.keyboardParam.maxValue = '200';
+            this.keyboardParam.defaultValue = '';
             this.keyboardParam.subType = 'lowerChar';
             this.keyboardParam.theme = '#ff0000';
+            if (this.lowerCharaterVal.indexOf('请输入') === -1) {
+                this.keyboardParam.defaultValue = this.lowerCharaterVal;
+            }
             this.keyboardParam.onConfirm = (v, t) => {
                 this.lowerCharaterVal = v;
                 t.keyboardclose(200);
@@ -128,9 +148,13 @@ name: 'App',
             this.keyboardParam.type = 'character'
             this.keyboardParam.length = '1,6';
             this.keyboardParam.minValue = '20';
+            this.keyboardParam.defaultValue = '';
             this.keyboardParam.maxValue = '200';
             this.keyboardParam.subType = 'upperChar';
             this.keyboardParam.theme = '#ff0000';
+            if (this.upperCharaterVal.indexOf('请输入') === -1) {
+                this.keyboardParam.defaultValue = this.upperCharaterVal;
+            }
             this.keyboardParam.onConfirm = (v, t) => {
                 this.upperCharaterVal = v;
                 t.keyboardclose(200);
@@ -142,8 +166,12 @@ name: 'App',
             this.keyboardParam.length = '1,6';
             this.keyboardParam.minValue = '20';
             this.keyboardParam.maxValue = '200';
+            this.keyboardParam.defaultValue = '';
             this.keyboardParam.subType = 'character';
             this.keyboardParam.theme = '#ff0000';
+            if (this.charaterVal.indexOf('请输入') === -1) {
+                this.keyboardParam.defaultValue = this.charaterVal;
+            }
             this.keyboardParam.onConfirm = (v, t) => {
                 this.charaterVal = v;
                 t.keyboardclose(200);
@@ -155,9 +183,13 @@ name: 'App',
             this.keyboardParam.type = 'charNum'
             this.keyboardParam.length = '1,6';
             this.keyboardParam.minValue = '20';
+            this.keyboardParam.defaultValue = '';
             this.keyboardParam.maxValue = '200';
             this.keyboardParam.subType = 'email';
             this.keyboardParam.theme = '#ff0000';
+            if (this.emailVal.indexOf('请输入') === -1) {
+                this.keyboardParam.defaultValue = this.emailVal;
+            }
             this.keyboardParam.onConfirm = (v, t) => {
                 this.emailVal = v;
                 t.keyboardclose(200);
@@ -168,9 +200,13 @@ name: 'App',
             this.keyboardParam.type = 'charNum'
             this.keyboardParam.length = '1,6';
             this.keyboardParam.minValue = '20';
+            this.keyboardParam.defaultValue = '';
             this.keyboardParam.maxValue = '200';
             this.keyboardParam.subType = 'password';
             this.keyboardParam.theme = '#ff0000';
+            if (this.passwordVal.indexOf('请输入') === -1) {
+                this.keyboardParam.defaultValue = this.passwordVal;
+            }
             this.keyboardParam.onConfirm = (v, t) => {
                 this.passwordVal = v;
                 t.keyboardclose(200);
@@ -183,8 +219,12 @@ name: 'App',
             this.keyboardParam.length = '1,6';
             this.keyboardParam.minValue = '20';
             this.keyboardParam.maxValue = '200';
+            this.keyboardParam.defaultValue = '';
             this.keyboardParam.subType = 'charNum';
             this.keyboardParam.theme = '#ff0000';
+            if (this.charNumVal.indexOf('请输入') === -1) {
+                this.keyboardParam.defaultValue = this.charNumVal;
+            }
             this.keyboardParam.onConfirm = (v, t) => {
                 this.charNumVal = v;
                 t.keyboardclose(200);
@@ -198,10 +238,14 @@ name: 'App',
             this.keyboardParam.length = '1,6';
             this.keyboardParam.minValue = '20';
             this.keyboardParam.maxValue = '200';
+            this.keyboardParam.defaultValue = '';
             this.keyboardParam.subType = 'custom';
             this.keyboardParam.theme = '#ff0000';
+            if (this.customVal.indexOf('请输入') === -1) {
+                this.keyboardParam.defaultValue = this.customVal;
+            }
             this.keyboardParam.onConfirm = (v, t) => {
-                this.lowerCharaterVal = v;
+                this.customVal = v;
                 t.keyboardclose(200);
             }
             keyboard(this.keyboardParam);

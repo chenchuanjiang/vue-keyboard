@@ -11,11 +11,11 @@
         <span class="clickMe" @click="showKeyboard5">{{ lowerCharaterVal }}</span>
         <span class="clickMe" @click="showKeyboard6">{{ upperCharaterVal }}</span>
         <span class="clickMe" @click="showKeyboard7">{{ charaterVal }}</span>
-
+        CharNum
         <span class="clickMe" @click="showKeyboard10">{{ charNumVal }}</span>
         <span class="clickMe" @click="showKeyboard9">{{ passwordVal }}</span>
         <span class="clickMe" @click="showKeyboard8">{{ emailVal }}</span>
-
+        custom
         <span class="clickMe" @click="showKeyboard11">{{ customVal }}</span>
   </div>
 </template>

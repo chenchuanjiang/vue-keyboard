@@ -13,11 +13,11 @@
         <div :class="[{'hidden': !isChar}, 'character-cont']">
             <ul :class="[{'hidden': isUpper}, 'character-lower-keyboard']" id="character_lower_keyboard">
                 <li v-for="(lc, i) in lowerCharList" :key="lc" :class="['character-lower-item', 'key-item', {'disable': noneKey.indexOf(i) > -1}]">{{lc}}</li>
-                <li :class="['character-lower-item', 'caLock', 'toUpper', 'key-item', {'disable': !canSwitch}]"><i class="flag"></i></li>
+                <li :class="['character-lower-item', 'caLock', 'toUpper', 'key-item', {'disable':  noneKey.indexOf(26) > -1}]"><i class="flag"></i></li>
             </ul>
             <ul :class="[{'hidden': !isUpper}, 'character-upper-keyboard']" id="character_upper_keyboard">
                 <li v-for="(uc, i) in upperCharlist" :key="uc"  :class="['character-upper-item', 'key-item', {'disable': noneKey.indexOf(i) > -1}]">{{ uc }}</li>
-                <li :class="['character-upper-item', 'caLock', 'toLower', 'key-item', {'disable': !canSwitch}]"><i class="flag"></i></li>
+                <li :class="['character-upper-item', 'caLock', 'toLower', 'key-item', {'disable':  noneKey.indexOf(26) > -1}]"><i class="flag"></i></li>
             </ul>
             <ul class="operSym">
                 <li :class="['character-special-item', 'key-item',{ 'disable': noneOpe.indexOf(0) > -1}]">Num</li>
@@ -133,7 +133,7 @@ export default {
                 this.canConfirm = true;
                 this.noneKey = [0,1,2,3,4,5,6,7,8,9,10];
             } else {
-                this.noneKey = [];
+                this.noneKey = [9];
             }
         },
         setNumber(){
@@ -155,6 +155,8 @@ export default {
                     this.canConfirm = true;
                     if (this.value.length >= (a[1] - 0)){
                         this.noneKey = [0,1,2,3,4,5,6,7,8,9,10];
+                    } else {
+                        this.noneKey = [9];
                     }
                 }
             }
@@ -249,6 +251,11 @@ export default {
                 this.noneOpe = [0,1,2,3];
             }
             this.setNonekey('c');
+            setTimeout(() => {
+                if (this.noneOpe.length === 3) {
+                    this.noneOpe = [0,1,2,3];
+                }
+            }, 0);
         },
         getNumL(s,e){
             let k =[];
@@ -265,8 +272,8 @@ export default {
             const ev = e || window.event,
                 t = ev.target || ev.srcElement;
             if (t.parentNode.nodeName.toLowerCase() == 'li' || t.nodeName.toLowerCase() == 'li') {
-                const tc = t.className;
-                if (tc.indexOf('disable') > -1) {
+                const tc = t.className, tpc = t.parentNode.className;
+                if (tc.indexOf('disable') > -1 || tpc.indexOf('disable') > -1) {
                     return;
                 } else {
                     this.handleNumAdd(t);
@@ -319,10 +326,10 @@ export default {
             this.canConfirm = false;
             const v = this.value;
             if (this.isNum) {
-                if (!v.length || v.indexOf('@') === (v.length - 1) || !v.split('.').pop()) {
+                if (v.indexOf('@')===-1 || v.indexOf('@') === (v.length - 1) || (v.indexOf('.')>-1 && !v.split('.').pop())) {
                     this.noneKey = [10];
-                } else if (v.split('.').pop().length > 4) {
-                    this.noneKey = [1,2,3,4,5,6,7,8,9,11];
+                } else if (v.indexOf('.')>-1 && v.split('.').pop().length > 4) {
+                    this.noneKey = [0,1,2,3,4,5,6,7,8,9,11];
                 }
             } else {
                 this.noneKey = [];
@@ -331,7 +338,7 @@ export default {
                 } else {
                     if (v.indexOf('@') > 0) {
                         this.noneOpe = [1];
-                    } else if (v.split('.').pop().length > 4) {
+                    } else if (v.indexOf('.')>-1 && v.split('.').pop().length > 4) {
                         this.noneKey = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25];
                         this.noneOpe = [1,2,3];
                     }
@@ -350,9 +357,9 @@ export default {
                     this.setNumber();
                 }
             } else if (this.defaultParam.type === 'character') {
-                this.setChar('noUpLow');
+                this.setChar('upLow');
             } else if (this.defaultParam.type === 'charNum') {
-
+                this.setCharNum();
             }
         },
         setNonekey(type){
